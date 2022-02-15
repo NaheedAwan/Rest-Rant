@@ -11,6 +11,9 @@ app.get('/', (req,res)=>{
     // res.send('Hello World')
     res.render('home')
 })
+app.get('*', (req, res) => {
+    res.render('error404')
+  })
 // creating 404 route
 app.get('*', (req, res) => {
     res.status(404).send('<h1>404 Page</h1>')
