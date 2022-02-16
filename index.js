@@ -14,6 +14,9 @@ app.get('/', (req,res)=>{
 app.get('*', (req, res) => {
     res.render('error404')
   })
+//   GET/places
+// GET /places
+
 // creating 404 route
 app.get('*', (req, res) => {
     res.status(404).send('<h1>404 Page</h1>')
