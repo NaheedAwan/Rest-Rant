@@ -6,6 +6,11 @@ function error404 () {
           <main>
               <h1>404: PAGE NOT FOUND</h1>
               <p>Oops, sorry, we can't find this page!</p>
+              <div><img src="/images/juice.jpg" alt="Dark Red juice Glass" /></div>
+              <div>
+                 src="Photo by <a href="https://unsplash.com/@alexandermils?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alexander Mils</a> on <a href="https://unsplash.com/@alexandermils?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+              </div>
           </main>
       </Def>
     )
