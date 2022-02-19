@@ -3,6 +3,7 @@ const places = require('../models/places.js')
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
+// Edit
 router.get('/:id/edit', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
@@ -15,6 +16,7 @@ router.get('/:id/edit', (req, res) => {
     res.render('places/edit', { place: places[id] })
   }
 })
+// show
 router.get('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
@@ -24,7 +26,7 @@ router.get('/:id', (req, res) => {
     res.render('error404')
   }
   else {
-    res.render('places/show', { place: places[id] })
+    res.render('places/show', { place: places[id], id })
   }
 })
 
@@ -42,6 +44,20 @@ router.post('/', (req, res) => {
   }
   places.push(req.body)
   res.redirect('/places')
+})
+// delete
+router.delete('/places/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    places.splice(id, 1)
+    res.redirect('/places')
+  }
 })
 
 router.get('/', (req, res) => {
