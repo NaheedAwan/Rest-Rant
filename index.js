@@ -3,19 +3,19 @@ const express = require('express')
 const placesRoutes = require('./controllers/places')
 
 const app = express()
-
+// initializing react engine
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
-
+// importing routes
 app.use('/places', placesRoutes)
 
 app.get('/', (req, res) => {
     res.render('home')
 })
-
+// wildcard route
 app.get('*', (req, res) => {
     res.render('error404')
 })
@@ -24,32 +24,6 @@ const PORT = process.env.PORT
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))
 
-// Modules and Globals
-
-
-// require('dotenv').config()
-// const express = require('express')
-// const app = express()
-// const placeRoutes = require('./controllers/places')
-// // Express Settings
-// app.set('views', __dirname + '/views')
-// app.set('view engine', 'jsx')
-// app.engine('jsx', require('express-react-views').createEngine())
-// app.use(express.static('public'))
-
-// // Controllers & Routes
-// app.use(express.urlencoded({ extended: true }))
-// app.use('/places', placeRoutes)
-// app.get('/', (req, res) => {
-//     res.render('home')
-// })
-
-// app.get('*', (req, res) => {
-//     res.render('error404')
-// })
-
-// // Listen for Connections
-// app.listen(process.env.PORT)
 
 
 
